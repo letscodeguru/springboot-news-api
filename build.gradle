@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.0.RC2"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'news-service'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.95'
+	}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+	compile("org.jsoup:jsoup:1.10.3")
+	compile group: 'com.google.code.gson', name: 'gson', version:'2.7'
+	compile("org.apache.httpcomponents:httpclient:4.5.3")
+	compile("com.amazonaws:aws-java-sdk-sqs")
+	//compile("org.springframework.cloud:spring-cloud-starter-hystrix")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.jayway.jsonpath:json-path')
+}
+
