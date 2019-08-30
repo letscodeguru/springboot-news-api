@@ -25,15 +25,12 @@ import guru.letscode.feed.news.NewsArticle;
 import guru.letscode.feed.news.NewsArticleRepository;
 
 @Component
-public class FeedContentScheduleTask {
+public class FeedContentScheduleTask {/*
 
 	Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
 	NewsArticleRepository newsArticleRepository;
-
-	@Value("${sqs.newsfeeds.url}")
-	private String queueUrl;
 
 	@Scheduled(fixedRate = 10000)
 	public void fetchNewsContent() {
@@ -47,7 +44,6 @@ public class FeedContentScheduleTask {
 		Type listType = new TypeToken<ArrayList<NewsArticle>>() {
 		}.getType();
 		for (Message message : messages) {
-			sqs.deleteMessage(new DeleteMessageRequest(queueUrl, message.getReceiptHandle()));
 			List<NewsArticle> articles = gson.fromJson(message.getBody(), listType);
 
 			articles.forEach(article -> {
@@ -68,5 +64,5 @@ public class FeedContentScheduleTask {
 			});
 		}
 
-	}
+	}*/
 }

@@ -51,14 +51,10 @@ public class NewsArticleFeedScheduleTask {
 	@Value("${newsapi.article.url}")
 	private String newsArticleApi;
 
-	@Value("${sqs.newsfeeds.url}")
-	private String queueUrl;
 
-	@Scheduled(fixedRate = 600000)
+	@Scheduled(fixedRate = 60000)
 	public void fetchCurrentNews() {
 		
-		AmazonSQS sqs = AmazonSQSClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
-		logger.debug("SQS url: " + queueUrl);
 		List<NewsSources> newsSources = newsSourceRepository.findAll();
 		for (NewsSources source : newsSources) {
 			final String url = newsArticleApi + source.getId();

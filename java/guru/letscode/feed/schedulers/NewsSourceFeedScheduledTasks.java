@@ -37,7 +37,7 @@ public class NewsSourceFeedScheduledTasks {
 	@Scheduled(fixedRate = 500000)
 	public void fetchNewsSources() {
 		System.out.println("The time is now " + dateFormat.format(new Date()));
-		final String url = "https://newsapi.org/v1/sources";
+		final String url = "http://newsapi.org/v1/sources";
 		//Todo explore resttemplate
 		HttpClient httpclient = HttpClientBuilder.create().build();
 		HttpGet httpGet = new HttpGet(url);
