@@ -56,6 +56,6 @@ public class NewsArticleRepositoryImpl implements NewsArticleCustomeRepository {
 	@Override
 	public List<String> getCategories() {
 		// TODO Auto-generated method stub
-		return mongoTemplate.getCollection("newsarticles").distinct(NewsArticle.KEY_CATEGORY);
+		return null;//mongoTemplate.getCollection("newsarticles").distinct(NewsArticle.KEY_CATEGORY);
 	}
 }

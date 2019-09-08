@@ -3,7 +3,6 @@ package guru.letscode;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,6 @@ import guru.letscode.feed.FeedMetaProperties;
 @RequestMapping("/api")
 public class DocumentStoreController {
 
-	Logger logger = Logger.getLogger(getClass());
 	@Autowired
 	private FeedDocumentRepository repository;
 
@@ -55,7 +53,6 @@ public class DocumentStoreController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			logger.error(e.getMessage());
 		}
 
 		return null;
